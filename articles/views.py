@@ -6,3 +6,6 @@ from django.http.response import HttpResponse
 
 def hello_world(request):
     return HttpResponse('<h1>hello world<h1>')
+
+def hello_e51an(request):
+    return HttpResponse('я @e51an')
