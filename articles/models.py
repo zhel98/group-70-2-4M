@@ -17,3 +17,9 @@ articles = Article.objects.get(id=1)
 articles.text = 'new text'
 articles.save()
 #delete
+
+#новая модель каталог
+class Catalog(models.Model):
+    catalog_title = models.CharField(max_length=255)
+    catalog_rate = models.IntegerField()
+    
