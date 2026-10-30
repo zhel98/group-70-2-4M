@@ -17,3 +17,4 @@ def article_list(request: HttpResponse) -> HttpResponse:
 
 def catalog_list(request: HttpResponse)-> HttpResponse:
     catalog = Catalog.objects.all()
+    return HttpResponse(catalog)
