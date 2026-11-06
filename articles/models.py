@@ -6,20 +6,13 @@ class Article(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     rate = models.IntegerField()
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null= True)
     
-#create
-num_1 = Article(title='title_1', text = 'text_1', rate=1)
-num_1.save()
-num_2 = Article.objects.create(title='title_1', text = 'text_2', rate=2)
-#read
-articles = Article.objects.get(id=1)
-#update
-articles.text = 'new text'
-articles.save()
-#delete
+    def __str__(self) -> str:
+        return self.title
+    
 
-#новая модель каталог
-class Catalog(models.Model):
-    catalog_title = models.CharField(max_length=255)
-    catalog_rate = models.IntegerField()
+#новая модель категория
+class Category(models.Model):
+    name = models.CharField(max_length=255)
     
