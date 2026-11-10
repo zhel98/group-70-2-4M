@@ -15,4 +15,14 @@ class Article(models.Model):
 #новая модель категория
 class Category(models.Model):
     name = models.CharField(max_length=255)
+
+#новая модель туду 
+class Todo(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    is_completed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.title
     

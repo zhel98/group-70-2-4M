@@ -16,11 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from articles.views import article_list, article_detail
+from articles.views import (
+    article_detail,
+    article_list,
+    todo_create,
+    todo_detail,
+    todo_list,
+    todo_toggle,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', article_list, name = 'article_list'),
-    path('<int:id>/detail/', article_detail, name='article_detail'),
+    path('', todo_list, name='todo_list'),
+    path('tasks/add/', todo_create, name='todo_create'),
+    path('tasks/<int:pk>/', todo_detail, name='todo_detail'),
+    path('tasks/<int:pk>/toggle/', todo_toggle, name='todo_toggle'),
+    path('articles/', article_list, name='article_list'),
+    path('articles/<int:id>/detail/', article_detail, name='article_detail'),
+    path('<int:id>/detail/', article_detail, name='legacy_article_detail'),
 ]
-
