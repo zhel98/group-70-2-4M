@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }} — Blog{% endblock %}
+
+{% block content %}
+
+<h1>{{ article.title }}</h1>
+
+<p>{{ article.text }}</p>
+
+<p>Рейтинг: {{ article.rate }}</p>
+
+<a href="{% url 'article_list' %}">
+    Вернуться к статьям
+</a>
+
+{% endblock %}
