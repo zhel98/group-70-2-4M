@@ -16,3 +16,10 @@ class Article(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255)
     
+
+#новая модель комменты
+class Comment(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    author_name = models.CharField(max_length=25)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)

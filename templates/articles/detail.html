@@ -8,6 +8,24 @@
 
 <p>{{ article.text }}</p>
 
+<h2>Комментарии</h2>
+{% for comment in comments %}
+    <article>
+        <h3>{{ comment.author_name }}</h3>
+        <p>{{ comment.text }}</p>
+        <small>{{ comment.created_at }}</small>
+    </article>
+{% empty %}
+    <p>Пока нет комментариев.</p>
+{% endfor %}
+
+<h2>Оставить комментарий</h2>
+<form method="post" action="{% url 'comment_detail' article.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
 <p>Рейтинг: {{ article.rate }}</p>
 
 <a href="{% url 'article_list' %}">
