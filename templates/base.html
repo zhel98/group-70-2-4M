@@ -22,7 +22,7 @@
     <!-- Навигация -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'todo_list' %}">ToDo</a>
+            <a class="navbar-brand fw-bold" href="#">Blog</a>
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#mainNavbar"
                     aria-controls="mainNavbar" aria-expanded="false" aria-label="Меню">
@@ -38,7 +38,7 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'post_create' %}active{% endif %}"
-                           href="#">Новый пост</a>
+                           href="{% url 'article_create' %}">Новый пост</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -49,7 +49,6 @@
                            placeholder="Поиск..." value="{{ request.GET.q|default:'' }}" aria-label="Поиск">
                     <button class="btn btn-outline-light" type="submit">Найти</button>
                 </form>
-
 
                 <!-- Пользователь -->
                 <ul class="navbar-nav">
